@@ -1,6 +1,6 @@
 from flask import Flask, request, g, jsonify
 import sqlite3
-
+#DB configs
 DATABASE = '/home/ubuntu/flaskapp/test.db'
 
 app = Flask(__name__)
