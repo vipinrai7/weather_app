@@ -1,7 +1,17 @@
+'''
+This is a POC to work on AWS.
+Author: Vipin B Rai.
+Version: 0.1
+'''
+
 from flask import Flask, request, g, jsonify
 import sqlite3
-#DB configs
+
+# DB config for aws.
 DATABASE = '/home/ubuntu/flaskapp/test.db'
+
+# DB config for local.
+# DATABASE = '/home/vipin/workspaces/aws_stuff/weather_app/test.db'
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -29,7 +39,7 @@ def execute_query(query, args=()):
 
 @app.route('/')
 def hello():
-	return "<h1> Hello from the Amazonians!!!!</h2>"
+	return "<h1> Welcome to Weather Monitoring Portal</h2>"
 
 @app.route('/add',methods=['POST'])
 def addinfo():
@@ -41,8 +51,10 @@ def addinfo():
 		   [t,h])
 	db.commit()
 	db.close()
-	return "Values insrted"
+	return "Values inserted."
 
+# This shows the basic contents of the db.
+# To-Do The front end part yet to be decided.
 @app.route("/viewdb")
 def viewdb():
     rows = execute_query("""SELECT * FROM test;""")
