@@ -1,0 +1,30 @@
+[Mon Feb 20 13:53:03.470793 2017] [:error] [pid 25590:tid 140635169896192] [client 117.209.245.237:19796]     response = self.full_dispatch_request()
+[Mon Feb 20 13:53:03.470795 2017] [:error] [pid 25590:tid 140635169896192] [client 117.209.245.237:19796]   File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+[Mon Feb 20 13:53:03.470798 2017] [:error] [pid 25590:tid 140635169896192] [client 117.209.245.237:19796]     rv = self.handle_user_exception(e)
+[Mon Feb 20 13:53:03.470800 2017] [:error] [pid 25590:tid 140635169896192] [client 117.209.245.237:19796]   File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+[Mon Feb 20 13:53:03.470802 2017] [:error] [pid 25590:tid 140635169896192] [client 117.209.245.237:19796]     reraise(exc_type, exc_value, tb)
+[Mon Feb 20 13:53:03.470804 2017] [:error] [pid 25590:tid 140635169896192] [client 117.209.245.237:19796]   File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+[Mon Feb 20 13:53:03.470806 2017] [:error] [pid 25590:tid 140635169896192] [client 117.209.245.237:19796]     rv = self.dispatch_request()
+[Mon Feb 20 13:53:03.470808 2017] [:error] [pid 25590:tid 140635169896192] [client 117.209.245.237:19796]   File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+[Mon Feb 20 13:53:03.470810 2017] [:error] [pid 25590:tid 140635169896192] [client 117.209.245.237:19796]     return self.view_functions[rule.endpoint](**req.view_args)
+[Mon Feb 20 13:53:03.470813 2017] [:error] [pid 25590:tid 140635169896192] [client 117.209.245.237:19796]   File "/var/www/html/flaskapp/flaskapp.py", line 41, in addinfo
+[Mon Feb 20 13:53:03.470815 2017] [:error] [pid 25590:tid 140635169896192] [client 117.209.245.237:19796]     [t,h])
+[Mon Feb 20 13:53:03.470826 2017] [:error] [pid 25590:tid 140635169896192] [client 117.209.245.237:19796] OperationalError: attempt to write a readonly database
+[Mon Feb 20 13:55:18.913190 2017] [mpm_event:notice] [pid 8134:tid 140635271612288] AH00494: SIGHUP received.  Attempting to restart
+[Mon Feb 20 13:55:18.966536 2017] [mpm_event:notice] [pid 8134:tid 140635271612288] AH00489: Apache/2.4.7 (Ubuntu) mod_wsgi/3.4 Python/2.7.6 configured -- resuming normal operations
+[Mon Feb 20 13:55:18.966561 2017] [core:notice] [pid 8134:tid 140635271612288] AH00094: Command line: '/usr/sbin/apache2'
+[Mon Feb 20 13:55:36.654122 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807] [2017-02-20 13:55:36,653] ERROR in app: Exception on /add [POST]
+[Mon Feb 20 13:55:36.654146 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807] Traceback (most recent call last):
+[Mon Feb 20 13:55:36.654150 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807]   File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+[Mon Feb 20 13:55:36.654152 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807]     response = self.full_dispatch_request()
+[Mon Feb 20 13:55:36.654155 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807]   File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+[Mon Feb 20 13:55:36.654157 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807]     rv = self.handle_user_exception(e)
+[Mon Feb 20 13:55:36.654160 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807]   File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+[Mon Feb 20 13:55:36.654162 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807]     reraise(exc_type, exc_value, tb)
+[Mon Feb 20 13:55:36.654164 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807]   File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+[Mon Feb 20 13:55:36.654166 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807]     rv = self.dispatch_request()
+[Mon Feb 20 13:55:36.654168 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807]   File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+[Mon Feb 20 13:55:36.654171 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807]     return self.view_functions[rule.endpoint](**req.view_args)
+[Mon Feb 20 13:55:36.654173 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807]   File "/var/www/html/flaskapp/flaskapp.py", line 41, in addinfo
+[Mon Feb 20 13:55:36.654175 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807]     [t,h])
+[Mon Feb 20 13:55:36.654177 2017] [:error] [pid 25670:tid 140635169896192] [client 117.209.245.237:19807] OperationalError: attempt to write a readonly database
