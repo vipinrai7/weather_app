@@ -6,14 +6,12 @@ Version: 0.1
 
 from flask import Flask, request, g, jsonify
 import sqlite3
-
-# DB config for aws.
-DATABASE = '/home/ubuntu/flaskapp/test.db'
-
-# DB config for local.
-# DATABASE = '/home/vipin/workspaces/aws_stuff/weather_app/test.db'
+import os
 
 app = Flask(__name__)
+
+# DB config for aws.
+DATABASE = os.path.join(app.root_path,'test.db')
 app.config.from_object(__name__)
 
 def connect_to_database():
@@ -45,10 +43,11 @@ def hello():
 def addinfo():
 	db=get_db()
 	input_str=dict(request.get_json(force=True))
-	t=int(input_str['temp'])
-	h=int(input_str['humidity'])
-	db.execute('insert into test (temp, humidity) values(?,?);',\
-		   [t,h])
+	t=float(input_str['temp'])
+	h=float(input_str['humidity'])
+	i=int(input_str['id'])
+	db.execute('insert into test (id, temp, humidity) values(?,?,?);',\
+		   [i,t,h])
 	db.commit()
 	db.close()
 	return "Values inserted."
