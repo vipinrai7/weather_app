@@ -3,7 +3,7 @@ import sqlite3
 
 conn = sqlite3.connect('test.db')
 cur = conn.cursor()
-cur.execute("""DROP TABLE IF EXISTS natlpark""")
+cur.execute("""DROP TABLE IF EXISTS test""")
 cur.execute("""CREATE TABLE test
             (id integer, temp float, humidity float)""")
 
