@@ -4,11 +4,17 @@ Author: Vipin B Rai.
 Version: 0.1
 '''
 
-from flask import Flask, request, g, jsonify
+from flask import Flask, request, g, jsonify, render_template
+from flask_bootstrap import Bootstrap
 import sqlite3
 import os
 
-app = Flask(__name__)
+def create_app():
+	app = Flask(__name__)
+	Bootstrap(app)
+	return app
+app = create_app()
+
 
 # DB config for aws.
 DATABASE = os.path.join(app.root_path,'test.db')
@@ -37,7 +43,7 @@ def execute_query(query, args=()):
 
 @app.route('/')
 def hello():
-	return "<h1> Welcome to Weather Monitoring Portal</h2>"
+	return render_template('index.html')
 
 @app.route('/add',methods=['POST'])
 def addinfo():
