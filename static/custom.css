@@ -1,0 +1,8 @@
+.container{
+	border-radius: 0px;
+}
+.jumbotron{
+	background: url('/static/images/jumbo.jpg');
+	color:white;
+	border-radius: 0px !important;
+}
