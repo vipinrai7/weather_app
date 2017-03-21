@@ -6,8 +6,11 @@ Version: 0.1
 
 from flask import Flask, request, g, jsonify, render_template
 from flask_bootstrap import Bootstrap
+from helper import data_dict
 import sqlite3
 import os
+import requests
+import json
 
 def create_app():
 	app = Flask(__name__)
@@ -15,6 +18,11 @@ def create_app():
 	return app
 app = create_app()
 
+# API url and Keys to openweathermap.org
+params={'id':1263780,
+		'APPID':'3b689091aaee29dc3b8a297267fd1618',
+		'units':'metric'}
+API_URL='http://api.openweathermap.org/data/2.5/weather'
 
 # DB config for aws.
 DATABASE = os.path.join(app.root_path,'test.db')
@@ -64,6 +72,17 @@ def addinfo():
 def viewdb():
     rows = execute_query("""SELECT * FROM test;""")
     return '<br>'.join(str(row) for row in rows)
+
+@app.route("/report")
+def report():
+	response=requests.get(API_URL,params=params)
+	data=response.json()
+	cleaned_data=data_dict(data)
+	interim=json.dumps(cleaned_data)
+	weather_data=json.loads(interim)
+
+	return render_template('report.html',data=weather_data)
+
 
 if __name__=='__main__':
 	app.run()
