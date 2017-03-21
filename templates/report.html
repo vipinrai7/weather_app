@@ -1,0 +1,18 @@
+{% extends "frame.html" %}
+{% block title %} Weather App Report{% endblock %}
+
+{% block content %}
+<div class="container">
+	<h1>City: {{data['name']}},IN</h1>
+	<h2>Description:{{data['description']|capitalize}} </h2>
+	<h2>Temperature: </h2>
+	<h3>Avg: {{data['data']['temp']}} C</h3>
+	<h3>Max: {{data['data']['temp_max']}}   Min: {{data['data']['temp_min']}}</h3>
+	<h2>Humidity : {{data['data']['humidity']}} % </h2>
+	<h2>Pressure : {{data['data']['pressure']}} bar</h2>
+	<h2>Wind : {{data['wind']['deg']}} degrees {{data['wind']['speed']}} kmph. </h2>
+	<h2>Ground level: {{data['data']['grnd_level']}} m</h2>
+	<h2>Sea level: {{data['data']['sea_level']}} m</h2>
+</div>
+
+{% endblock %}

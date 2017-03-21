@@ -1,32 +1,11 @@
-{% extends "bootstrap/base.html" %}
-{% block title %} Weather App{% endblock %}
-
-{% block navbar %}
-<div class="navbar navbar-inverse" role = "navigation">
-	<div class="container">
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle"
-		data-toggle="collapse" data-target=".navbar-collapse">
-		<span class="sr-only">Toggle Navigation</span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		</button>
-		<a class='navbar-brand' href='/'>Weather App</a>
-	</div>
-	<div class="navbar-collapse collapse">
-		<ul class="nav navbar-nav">
-			<li><a href='/'>Home</a></li>
-		</ul>
-	</div>
-</div>
-</div>
-{% endblock %}
+{% extends "frame.html" %}
 
 {% block content %}
 <div class="container">
-	<div class="page-header">
+	<div class="jumbotron">
   		<h1>Weather App</h1>
   	</div>
+  	<p> This is a Cloud based weather monitoring portal. It uses a Raspberry Pi board and a host of sensors as a way to store and monitor weather based data online. To see the latest reports press the reports button.</p>
+  	<button class='btn btn-large' onclick="location.href='/report'" type='button'>View Report</button>
 </div>
 {% endblock %}
