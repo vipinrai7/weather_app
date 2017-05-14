@@ -1,0 +1,130 @@
+{% extends "frame.html" %}
+{% block head%}
+	{{super()}}	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+{%endblock%}
+{% block content %}
+	<div class="container">
+		<h1 class="justify-content-md-center"> Sensor Values </h1>
+		<div class="row justify-content-md-center" style="display:flex;justify-content: center;">
+			<div class="col-3" style="margin:10px;padding : 10px;border: 1px solid black;">
+	    		<canvas id="senti"></canvas>
+	    	</div>
+			<div class="col-3" style="margin:10px;padding : 10px;border: 1px solid black;">
+	    		<canvas id="senti2"></canvas>
+	    	</div>
+			<div class="col-3" style="margin:10px; padding : 10px;border: 1px solid black;">
+	    		<canvas id="senti3"></canvas>
+	    	</div>
+	    </div>
+	    <h1> Wind </h1>
+	    <hr>
+	    <iframe width="100%" height="450" src="https://embed.windy.com/embed2.html?lat=12.997&lon=75.328&zoom=10&level=surface&overlay=wind&menu=&message=&marker=&forecast=12&calendar=now&location=coordinates&type=map&actualGrid=&metricWind=kt&metricTemp=%C2%B0C" frameborder="0"></iframe>
+	    <h1> Temperature </h1>
+	    <hr>
+	    <iframe width="100%" height="450" src="https://embed.windy.com/embed2.html?lat=12.971&lon=75.096&zoom=10&level=surface&overlay=temp&menu=true&message=&marker=&forecast=12&calendar=now&location=coordinates&type=map&actualGrid=&metricWind=kt&metricTemp=%C2%B0C" frameborder="0"></iframe>
+
+	   	<h1> Pressure </h1>
+	    <hr>
+	    <iframe width="100%" height="450" src="https://embed.windy.com/embed2.html?lat=12.971&lon=75.096&zoom=10&level=surface&overlay=pressure&menu=true&message=&marker=&forecast=12&calendar=now&location=coordinates&type=map&actualGrid=&metricWind=kt&metricTemp=%C2%B0C" frameborder="0"></iframe>
+	   	<h1> Clouds </h1>
+	    <hr>
+	    <iframe width="100%" height="450" src="https://embed.windy.com/embed2.html?lat=12.971&lon=75.096&zoom=10&level=surface&overlay=clouds&menu=true&message=&marker=&forecast=12&calendar=now&location=coordinates&type=map&actualGrid=&metricWind=kt&metricTemp=%C2%B0C" frameborder="0"></iframe>  
+	    <h1> Rain </h1>
+	    <hr>
+	    <iframe width="100%" height="450" src="https://embed.windy.com/embed2.html?lat=12.971&lon=75.096&zoom=10&level=surface&overlay=rain&menu=true&message=&marker=&forecast=12&calendar=now&location=coordinates&type=map&actualGrid=&metricWind=kt&metricTemp=%C2%B0C" frameborder="0"></iframe>  
+	</div>
+
+	<script type="text/javascript">
+		Chart.defaults.global.responsive = false;
+		Chart.defaults.global.animation = true;
+		var ctx = document.getElementById('senti').getContext('2d');
+		var ctx2 = document.getElementById('senti2').getContext('2d');
+		var ctx3 = document.getElementById('senti3').getContext('2d');
+		var data = {
+						labels: [
+    						"Red",
+    						"",
+						],
+						datasets: [
+    						{
+        						data: [70,30],
+        						backgroundColor: ["#FF6384","#FFFFFF"],
+        						hoverBackgroundColor: ["#FF6384","#FFFFFF"]
+    						}]
+					};
+		var data2 = {
+						labels: [
+    						"Red",
+    						"",
+						],
+						datasets: [
+    						{
+        						data: [30,70],
+        						backgroundColor: ["#FF1156","#FFFFFF"],
+        						hoverBackgroundColor: ["#FF1156","#FFFFFF"]
+    						}]
+					};
+		var data3 = {
+						labels: [
+    						"Red",
+    						"",
+						],
+						datasets: [
+    						{
+        						data: [50,50],
+        						backgroundColor: ["#1163F9","#FFFFFF"],
+        						hoverBackgroundColor: ["#1163F9","#FFFFFF"]
+    						}]
+					};
+		var options1 = {
+						title:{
+							display:true,
+							text:"Temperature"
+
+						},
+							animation:{ 
+								easing: 'easeInOutQuart',
+								duration: 2500
+							}
+					};
+		var options2 = {
+				title:{
+					display:true,
+					text:"Humidity"
+
+				},
+					animation:{ 
+						easing: 'easeInOutQuart',
+						duration: 2500
+					}
+			};
+		var options3 = {
+				title:{
+					display:true,
+					text:"Pressure"
+
+				},
+					animation:{ 
+						easing: 'easeInOutQuart',
+						duration: 2500
+					}
+			};
+	    var myDoughnutChart = new Chart(ctx, {
+											type: 'doughnut',
+											data: data,
+											options: options1
+								});
+	    var myDoughnutChart2 = new Chart(ctx2, {
+											type: 'doughnut',
+											data: data2,
+											options: options2
+								});
+	    var myDoughnutChart3 = new Chart(ctx3, {
+											type: 'doughnut',
+											data: data3,
+											options: options3
+								});
+
+	</script>
+{% endblock %}
