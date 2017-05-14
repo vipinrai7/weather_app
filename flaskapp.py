@@ -83,7 +83,10 @@ def report():
 
 	return render_template('report.html',data=weather_data)
 
+@app.route("/analytics")
+def analytics():
+	return render_template('super.html')
 
 if __name__=='__main__':
-	app.run()
+	app.run(debug=True)
 
